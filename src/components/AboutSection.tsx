@@ -92,22 +92,10 @@ export default function AboutSection() {
               className="relative order-2 lg:order-1"
             >
               <div className="relative aspect-square max-w-md mx-auto">
-                {/* Decorative rings */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-0 rounded-full border border-accent-purple/20"
-                />
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-4 rounded-full border border-accent-pink/20"
-                />
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                  className="absolute inset-8 rounded-full border border-accent-cyan/20"
-                />
+                {/* Decorative rings - simplified on mobile */}
+                <div className="absolute inset-0 rounded-full border border-accent-purple/20 md:animate-spin-slow" style={{ animationDuration: '30s' }} />
+                <div className="absolute inset-4 rounded-full border border-accent-pink/20 md:animate-spin-slow-reverse" style={{ animationDuration: '25s' }} />
+                <div className="absolute inset-8 rounded-full border border-accent-cyan/20 md:animate-spin-slow" style={{ animationDuration: '20s' }} />
 
                 {/* Center content - Profile Photo */}
                 <div className="absolute inset-10 rounded-full bg-gradient-to-br from-accent-purple/20 via-accent-pink/10 to-accent-cyan/20 p-1.5 overflow-hidden">
@@ -126,21 +114,13 @@ export default function AboutSection() {
                   />
                 </div>
 
-                {/* Floating badges */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-10 right-0 px-4 py-2 glass rounded-xl"
-                >
+                {/* Floating badges - static on mobile */}
+                <div className="absolute top-10 right-0 px-4 py-2 glass rounded-xl md:animate-float" style={{ animationDuration: '3s' }}>
                   <span className="text-sm text-white/80">Web Dev</span>
-                </motion.div>
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
-                  className="absolute bottom-10 left-0 px-4 py-2 glass rounded-xl"
-                >
+                </div>
+                <div className="absolute bottom-10 left-0 px-4 py-2 glass rounded-xl md:animate-float" style={{ animationDuration: '4s', animationDelay: '0.5s' }}>
                   <span className="text-sm text-white/80">Designer</span>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
 

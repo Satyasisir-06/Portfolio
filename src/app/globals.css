@@ -15,6 +15,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -23,6 +24,39 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+  touch-action: pan-y;
+}
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  .noise-overlay {
+    display: none;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Smooth animations */
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin 12s linear infinite reverse;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Custom scrollbar */
@@ -100,6 +134,15 @@ body {
 
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Canvas container */
