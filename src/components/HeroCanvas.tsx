@@ -71,7 +71,7 @@ const createGradientMaterial = useCallback(() => {
 }, [])
 
 // Memoized particle system
-const useParticles = useCallback((count: number) => {
+const useParticles = (count: number) => {
   return useMemo(() => {
     const positions = new Float32Array(count * 3)
     const sizes = new Float32Array(count)
@@ -85,7 +85,7 @@ const useParticles = useCallback((count: number) => {
     }
     return { positions, sizes, count }
   }, [count])
-}, [])
+}
 
 // Main 3D Ring Component
 function AbstractRing({ settings, gradientMaterial }: { settings: ReturnType<typeof getPerformanceSettings>, gradientMaterial: THREE.ShaderMaterial }) {
