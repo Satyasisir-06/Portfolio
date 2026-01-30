@@ -31,8 +31,8 @@ const getPerformanceSettings = (level: string) => {
   }
 }
 
-// Memoized gradient shader
-const createGradientMaterial = useCallback(() => {
+// Memoized gradient shader (regular function)
+const createGradientMaterial = () => {
   return new THREE.ShaderMaterial({
     uniforms: {
       uTime: { value: 0 },
@@ -68,7 +68,7 @@ const createGradientMaterial = useCallback(() => {
     transparent: true,
     side: THREE.DoubleSide,
   })
-}, [])
+}
 
 // Memoized particle system
 const useParticles = (count: number) => {
@@ -186,7 +186,7 @@ function CameraController() {
 // Scene Component
 function Scene({ performanceLevel }: { performanceLevel: string }) {
   const settings = getPerformanceSettings(performanceLevel)
-  const gradientMaterial = useMemo(() => createGradientMaterial(), [createGradientMaterial])
+  const gradientMaterial = useMemo(() => createGradientMaterial(), [])
 
   return (
     <>
