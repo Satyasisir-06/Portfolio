@@ -84,8 +84,8 @@ const useParticles = useCallback((count: number) => {
       sizes[i] = Math.random() * 1.5 + 0.5
     }
     return { positions, sizes, count }
-  }, [])
-})
+  }, [count])
+}, [])
 
 // Main 3D Ring Component
 function AbstractRing({ settings, gradientMaterial }: { settings: ReturnType<typeof getPerformanceSettings>, gradientMaterial: THREE.ShaderMaterial }) {
